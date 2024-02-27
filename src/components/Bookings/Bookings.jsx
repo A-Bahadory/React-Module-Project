@@ -5,6 +5,7 @@ import Search from "@/components/Search/Search";
 const Bookings = () => {
   const search = (searchVal) => {
     console.info("TO DO!", searchVal);
+    // create filter search
   };
 
   return (
