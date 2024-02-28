@@ -5,7 +5,6 @@
     ". title ." auto / var(--space--gap) 1fr var(--space--gap);
   border: var(--border);
   border-color: var(--color--accent);
-  background-color: pink;
 
   &__title {
     grid-area: title;
