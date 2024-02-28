@@ -1,5 +1,5 @@
 import { useState } from "react";
-import RestaurantButton from "../RestaurantButton";
+import RestaurantButton from "../RestaurantButton/RestaurantButton.jsx";
 
 const Restaurant = () => {
   const [orders, setOrders] = useState(0);
@@ -12,8 +12,7 @@ const Restaurant = () => {
       <h3 className="restaurant__heading">Restaurant Orders</h3>
       <ul className="restaurant__list">
         <li className="restaurant__item">
-          Pizzas: {orders}{" "}
-          <RestaurantButton orderOne = {orderOne}/>
+          Pizzas: {orders} <RestaurantButton orderOne={orderOne} />
         </li>
       </ul>
     </section>
