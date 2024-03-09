@@ -3,6 +3,12 @@ import SearchButton from "../SearchButton/SearchButton";
 
 const Search = () => {
 const [searchInput, setSearchInput] = useState("");
+
+function handleSearchInput(event){
+    setSearchInput(event.target.value)
+    console.log(event.target.value)
+}
+
 return (
 <section className="search">
   <header className="search__header">
@@ -18,6 +24,7 @@ return (
       className="search__input"
       placeholder="Customer name"
       value ={searchInput}
+      onChange={handleSearchInput}
     />
     <SearchButton />
   </form>
