@@ -15,7 +15,7 @@ function SearchResults({ results }) {
   return (
     <table>
       <thead>
-        <tr style={{ backgroundColor: "green" }}>
+        <tr style={{ backgroundColor: "lightgreen" }}>
           <th>Id</th>
           <th>Title</th>
           <th>First Name</th>
@@ -36,7 +36,7 @@ function SearchResults({ results }) {
           const isSelected = selectedRow === index;
           const rowStyle = {
             textAlign: "center",
-            backgroundColor: "blue",
+            backgroundColor: "lightblue",
           };
           if (isSelected) {
             rowStyle.backgroundColor = "red";
