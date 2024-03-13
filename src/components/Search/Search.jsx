@@ -12,6 +12,7 @@ const Search = (props) => {
   function getSearchValue(event) {
     event.preventDefault();
     props.search(searchInput);
+    setSearchInput("");
   }
 
   return (
