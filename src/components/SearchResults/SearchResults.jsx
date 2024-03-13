@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
-import CustomerProfile from "../CustomerProfile/CustomerProfile";
+//import CustomerProfile from "../CustomerProfile/CustomerProfile";
 
 function SearchResults({ results }) {
   const [selectedRow, setSelectedRow] = useState(null);
@@ -75,7 +75,7 @@ function SearchResults({ results }) {
           })}
         </tbody>
       </table>
-      <CustomerProfile id={id} />
+      {/* <CustomerProfile id={id} /> */}
     </>
   );
 }
