@@ -5,8 +5,17 @@ import FakeBookings from "@/data/fakeBookings.json";
 
 const Bookings = () => {
   const search = (searchVal) => {
-    console.info("TO DO!", searchVal);
+    // console.info("TO DO!", searchVal);
+    const filteredBookings = bookings.filter((booking) => {
+      const firstName = booking.firstName.toLowerCase();
+      const surname = booking.surname.toLowerCase();
+      return (
+        firstName.includes(searchVal) || surname.includes(searchVal)
+        );
+    });
+    setBookings(filteredBookings);
   };
+  
 
   const [bookings, setBookings] = useState(FakeBookings);
 
