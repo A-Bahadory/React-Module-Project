@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Search from "@/components/Search/Search";
 import SearchResults from "@/components/SearchResults/SearchResults.jsx";
 import FakeBookings from "@/data/fakeBookings.json";
@@ -9,17 +9,26 @@ const Bookings = () => {
     const filteredBookings = bookings.filter((booking) => {
       const firstName = booking.firstName.toLowerCase();
       const surname = booking.surname.toLowerCase();
-      return (
-        firstName.includes(searchVal) || surname.includes(searchVal)
-        );
+      return firstName.includes(searchVal) || surname.includes(searchVal);
     });
     setBookings(filteredBookings);
   };
-  
 
   const [bookings, setBookings] = useState(FakeBookings);
+  const [isLoading, setIsLoading] = useState(true);
 
-  return (
+  useEffect(() => {
+    
+    fetch("https://hotel-react.glitch.me/delayed").then((response) => {
+      console.log("5 seconds gone by");
+      setIsLoading(false);
+      return response.json();
+    });
+  });
+
+  return isLoading ? (
+    <p>Loading...</p>
+  ) : (
     <main className="bookings">
       <Search search={search} />
       <SearchResults results={bookings} />
