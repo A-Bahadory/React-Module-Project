@@ -5,7 +5,6 @@ import FakeBookings from "@/data/fakeBookings.json";
 
 const Bookings = () => {
   const search = (searchVal) => {
-    // console.info("TO DO!", searchVal);
     const filteredBookings = bookings.filter((booking) => {
       const firstName = booking.firstName.toLowerCase();
       const surname = booking.surname.toLowerCase();
@@ -18,9 +17,7 @@ const Bookings = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    
     fetch("https://hotel-react.glitch.me/delayed").then((response) => {
-      console.log("5 seconds gone by");
       setIsLoading(false);
       return response.json();
     });
