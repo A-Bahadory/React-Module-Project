@@ -17,10 +17,20 @@ const Bookings = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://hotel-react.glitch.me/delayed").then((response) => {
-      setIsLoading(false);
-      return response.json();
-    });
+    fetch("https://hotel-react.glitch.me/delayed")
+      .then((response) => {
+        console.log(response);
+        if (response.ok) {
+          setIsLoading(false);
+          return response.json();
+        }
+        console.log("About to generate error");
+        throw new Error("Something went wrong");
+      })
+      
+      .catch((error) => {
+        console.log(error);
+      });
   });
 
   return isLoading ? (
