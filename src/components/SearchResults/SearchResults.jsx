@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
-//import CustomerProfile from "../CustomerProfile/CustomerProfile";
-//component has to be created , then we can import it here
+import CustomerProfile from "../CustomerProfile/CustomerProfile";
 
 function SearchResults({ results }) {
   const [selectedRow, setSelectedRow] = useState(null);
@@ -16,38 +15,10 @@ function SearchResults({ results }) {
   };
 
   return (
-    <table>
-      <thead>
-        <tr style={{ backgroundColor: "lightgreen" }}>
-          <th>Id</th>
-          <th>Title</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email</th>
-          <th>Room Id</th>
-          <th>Check In</th>
-          <th>Check Out</th>
-          <th>Number of Nights</th>
-        </tr>
-      </thead>
-      <tbody>
-        {results.map((item, index) => {
-          const startDate = dayjs(item.checkInDate);
-          const endDate = dayjs(item.checkOutDate);
-          const daysDifference = endDate.diff(startDate, "day");
-
-          const isSelected = selectedRow === index;
-          const rowStyle = {
-            textAlign: "center",
-            backgroundColor: "lightblue",
-          };
-          if (isSelected) {
-            rowStyle.backgroundColor = "red";
-          
     <>
       <table>
         <thead>
-          <tr style={{ backgroundColor: "green" }}>
+          <tr style={{ backgroundColor: "lightgreen" }}>
             <th>Id</th>
             <th>Title</th>
             <th>First Name</th>
@@ -57,7 +28,6 @@ function SearchResults({ results }) {
             <th>Check In</th>
             <th>Check Out</th>
             <th>Number of Nights</th>
-            <th>Customer Profile</th>
           </tr>
         </thead>
         <tbody>
@@ -69,11 +39,8 @@ function SearchResults({ results }) {
             const isSelected = selectedRow === index;
             const rowStyle = {
               textAlign: "center",
-              backgroundColor: "blue",
+              backgroundColor: isSelected ? "red" : "lightblue",
             };
-            if (isSelected) {
-              rowStyle.backgroundColor = "red";
-            }
 
             return (
               <tr
@@ -104,7 +71,7 @@ function SearchResults({ results }) {
           })}
         </tbody>
       </table>
-      {/* <CustomerProfile id={id} /> */}
+      <CustomerProfile id={id} />
     </>
   );
 }
